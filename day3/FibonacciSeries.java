@@ -6,9 +6,9 @@ public class FibonacciSeries {
 		int a=0;
 		int b=1;
 		int c = 0;
-		for (int i = 1; i < range-1; i++) {
+		for (int i = 1; i <= range; i++)  {
 			c=a+b;
-			System.out.print(","+c);
+			System.out.print(a+" ");
 			a=b;
 			b=c;
 		}
@@ -18,7 +18,6 @@ public class FibonacciSeries {
 		int range=8;
 		FibonacciSeries value=new FibonacciSeries();
 		System.out.println("Below are the Fibonacci series of range 8");
-		System.out.print("0,1");
 		value.fibonacci(range);
 	}
 
