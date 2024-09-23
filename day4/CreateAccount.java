@@ -44,7 +44,7 @@ public class CreateAccount {
 		
 		// Enter Account Name
 		WebElement accountName=driver.findElement(By.xpath("//input[@id='accountName']"));
-String accName="Current Account3";
+		String accName="Current Account4";
 		accountName.sendKeys(accName);
 		
 		//Enter Description as "Seleniumn Automation Tester"
@@ -86,13 +86,13 @@ String accName="Current Account3";
 		//Verify Account name ==>> Need Help on Verifying Account Name
 		WebElement verifyAccountName=driver.findElement(By.xpath("//span[contains(text(),'Current Account3']"));
 		String vAccName=verifyAccountName.getText();
-		if(vAccName.equals(accName)) {
+		System.out.println(vAccName);
+		if(vAccName.contains(accName)) {
 			System.out.println("Account Name Verified and All Good ");
 		}
 		
 		//Close Browser
 		driver.close();
-
 	}
 
 }
