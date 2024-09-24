@@ -27,40 +27,32 @@ public class AmazonBagSearch {
 	bags.sendKeys("Bags for boys");
 	driver.findElement(By.id("nav-search-submit-button")).click();
 	
-	
 	//Print the 1-48 of total text
 	WebElement textPrint1=driver.findElement(By.xpath("//div[contains(@class,'a-section a-spacing-small')]//span[1]"));
 	WebElement textPrint2=driver.findElement(By.xpath("//div[contains(@class,'a-section a-spacing-small')]//span[3]"));
 	System.out.println(textPrint1.getText()+" "+textPrint2.getText());
 	
-	 //Select first 2  Brands
-	 WebElement brand1=driver.findElement(By.xpath("(//div[contains(@class,'a-checkbox a-checkbox-fancy')]//i)[2]"));
-	 brand1.click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-	 WebElement brand2=driver.findElement(By.xpath("(//div[contains(@class,'a-checkbox a-checkbox-fancy')]//i)[3]"));
-	 brand2.click();
+	//Select first 2  Brands
+	WebElement brand1=driver.findElement(By.xpath("(//div[contains(@class,'a-checkbox a-checkbox-fancy')]//i)[2]"));
+	brand1.click();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+	WebElement brand2=driver.findElement(By.xpath("(//div[contains(@class,'a-checkbox a-checkbox-fancy')]//i)[3]"));
+	brand2.click();
 	 
-	 //Select Newest arrival of the selected brands
-	 //driver.findElement(By.xpath("//select[@id='s-result-sort-select']/option[5]")).click();
-	 
-	 WebElement opt=driver.findElement(By.xpath("//select[@id='s-result-sort-select']"));
-	 Select optionsNew=new Select(opt);
-	 optionsNew.selectByIndex(4);
+	WebElement opt=driver.findElement(By.xpath("//select[@id='s-result-sort-select']"));
+	Select optionsNew=new Select(opt);
+	optionsNew.selectByIndex(4);
 	 
 	//Print the text and price of the first bag from the sorted Newest
-	 String bagTitle=driver.findElement(By.xpath("//a[contains(@class,'a-link-normal s-underline-text')]//span")).getText();
-	 String bagPrice=driver.findElement(By.xpath("//a[contains(@class,'a-link-normal s-no-hover s-underline-tex')]//span[1]")).getText();
-	 System.out.println("Bag Title is "+bagTitle+" & the Price is "+bagPrice);
+	String bagTitle=driver.findElement(By.xpath("//a[contains(@class,'a-link-normal s-underline-text')]//span")).getText();
+	String bagPrice=driver.findElement(By.xpath("//a[contains(@class,'a-link-normal s-no-hover s-underline-tex')]//span[1]")).getText();
+	System.out.println("Bag Title is "+bagTitle+" & the Price is "+bagPrice);
 	 
-	 //Get the title of the page
-	 String titlePage=driver.getTitle();
-	 System.out.println("Title of the Page is "+titlePage);
+	//Get the title of the page
+	String titlePage=driver.getTitle();
+	System.out.println("Title of the Page is "+titlePage);
 	 
-	 //Browser close
-	 driver.close();
-	 
-	 
+	//Browser close
+	driver.close();
 	}
-	
-
 }
