@@ -27,6 +27,9 @@ public class AmazonBagSearch {
 	bags.sendKeys("Bags for boys");
 	driver.findElement(By.id("nav-search-submit-button")).click();
 	
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+	
 	//Print the 1-48 of total text
 	WebElement textPrint1=driver.findElement(By.xpath("//div[contains(@class,'a-section a-spacing-small')]//span[1]"));
 	WebElement textPrint2=driver.findElement(By.xpath("//div[contains(@class,'a-section a-spacing-small')]//span[3]"));

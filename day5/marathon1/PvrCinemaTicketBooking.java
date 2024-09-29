@@ -9,7 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 public class PvrCinemaTicketBooking {
 
-	public static void main (String args[]) {
+	public static void main (String args[]) throws InterruptedException {
 		//Launch Browser
 		//ChromeDriver driver=new ChromeDriver();
 		EdgeDriver driver=new EdgeDriver();
@@ -19,6 +19,7 @@ public class PvrCinemaTicketBooking {
 		
 		//Maximize the window
 		driver.manage().window().maximize();
+				
 		
 		//Implicit wait 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -31,46 +32,54 @@ public class PvrCinemaTicketBooking {
 		WebElement chennai=driver.findElement(By.xpath("//div[@class='p-sidebar-content']//div[7]"));
 		chennai.click();
 		
-		//Select Cinema from quick book
+		//Select Cinema in quick book
 		WebElement cinema=driver.findElement(By.xpath("//div[@class='date-show']/span[2]"));
 		cinema.click();
 		
-		//Select cinema option from Quick book
+		//Select cinema option from dropdown
 		WebElement cinemaSelect=driver.findElement(By.xpath("//div[@id='cinema']"));
 		cinemaSelect.click();
-		
+		Thread.sleep(5000);
 		//Select first option of cinema from drop down
 		WebElement movieSelect=driver.findElement(By.xpath("//div[@class='p-dropdown-items-wrapper']//li[1]"));
 		movieSelect.click();
-		
+		Thread.sleep(3000);
+
 		//Select date first option
-		WebElement movieDate=driver.findElement(By.xpath("//div[@id='date']"));
-		movieDate.click();
+		//WebElement movieDate=driver.findElement(By.xpath("//div[@id='date']"));
+		//movieDate.click();
 		WebElement movieDateSelect=driver.findElement(By.xpath("//div[@class='p-dropdown-items-wrapper']//li[2]"));
 		movieDateSelect.click();
-		
+		Thread.sleep(3000);
+
 		//Select movie first option
-		WebElement movie=driver.findElement(By.xpath("//div[@id='movie']"));
-		movie.click();
+		//WebElement movie=driver.findElement(By.xpath("//div[@id='movie']"));
+		//movie.click();
 		WebElement movieSelectFirst=driver.findElement(By.xpath("//div[@class='p-dropdown-items-wrapper']//li[1]"));
 		movieSelectFirst.click();
 		
-		
+		Thread.sleep(3000);
 		//Select time first option
-		WebElement time=driver.findElement(By.xpath("//div[@id='time']"));
-		time.click();
+		//WebElement time=driver.findElement(By.xpath("//div[@id='time']"));
+		//time.click();
 		WebElement timeSelect=driver.findElement(By.xpath("//div[@class='p-dropdown-items-wrapper']//li[1]"));
 		timeSelect.click();
+		Thread.sleep(3000);
+
 		
 		//Click book button
 		WebElement clickBook=driver.findElement(By.xpath("//div[@class='quick-lefts ']"));
 		clickBook.click();
+		Thread.sleep(3000);
+
 		
 		//Click accept button from the Pop up terms & conditions
 		driver.findElement(By.xpath("//div[@class='accpet-btn-flow-seat']/button[2]")).click();
 		
 		//Select seat
-		driver.findElement(By.xpath("//tr[@class='seats-row'][2]/td[11]")).click();
+		driver.findElement(By.xpath("//tr[@class='seats-row'][2]/td[06]")).click();
+		driver.findElement(By.xpath("//tr[@class='seats-row'][2]/td[07]")).click();
+		driver.findElement(By.xpath("//tr[@class='seats-row'][2]/td[08]")).click();
 		
 		//Click Proceed button in payment summary
 		driver.findElement(By.xpath("//div[@class='register-btn']")).click();
@@ -83,11 +92,14 @@ public class PvrCinemaTicketBooking {
 		String grandTotal=driver.findElement(By.xpath("//div[contains(@class,'grand-tota col-md-3')]")).getText();
 		System.out.println("The Selected seat number is :"+grandTotal);
 		
+
 		//click proceed button from booking summary
 		driver.findElement(By.xpath("//div[contains(@class,'register-btn col-md-3')]")).click();
 		
+		Thread.sleep(3000);
+
 		//Click "x" mark from the popup opened
-		driver.findElement(By.xpath("//div[contains(@class,'cross-icon mx-2')]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'cross-icon mx-2')]/span")).click();
 		
 		//Get the title and verify in console
 		String title=driver.getTitle();
